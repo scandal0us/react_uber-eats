@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import { RestaurantsListPage } from './RestaurantsListPage';
 import { loadRestaurants } from '../../store/actions';
-import { selectRestauranrsList } from '../../store/selectors';
+import { selectRestauranrsList, selectRestauranrsListError, selectIsLoading } from '../../store/selectors';
 
 function mapState2Props(state) {
   return {
     restaurantsData: selectRestauranrsList(state),
+    error: selectRestauranrsListError(state),
+    isLoading: selectIsLoading(state),
   };
 }
 
